@@ -1,16 +1,22 @@
-# flutter_cloudmusic
 
-Netease Music
+# Flutter_CloudMusic
 
-## Getting Started
+Flutter仿写网易云音乐
 
-This project is a starting point for a Flutter application.
+## 持续更新
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## 运行需要以下支持
+**网易云音乐 Api [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)**
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+---
+
+
+# 重要pub
+* 状态管理 Fish_Redux：[**fish_redux**](https://github.com/alibaba/fish-redux)
+* 网络请求 dio：[**dio**](https://github.com/flutterchina/dio)
+* json解析 json_annotation：[**json_annotation**](https://github.com/dart-lang/json_serializable)
+* 轮播图 flutter_swiper: [**flutter_swiper**](https://github.com/best-flutter/flutter_swiper)
+
+
