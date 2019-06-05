@@ -1,9 +1,9 @@
 
 # Flutter_CloudMusic
 
-Flutter仿写网易云音乐
+Flutter仿写网易云音乐, 持续更新
 
-## 持续更新
+基于阿里 fish_redux 状态管理
 
 ---
 
