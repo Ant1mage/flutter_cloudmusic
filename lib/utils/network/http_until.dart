@@ -1,6 +1,7 @@
-
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_cloudmusic/base/net_config.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HttpUtil {
   static HttpUtil instance;
@@ -19,38 +20,30 @@ class HttpUtil {
       ..options = BaseOptions(
           baseUrl: NetConfig.host,
           connectTimeout: NetConfig.connectTimeout,
-          receiveTimeout: NetConfig.receiveTimeout);
-//      ..interceptors.add(HeaderInterceptor());
-//      ..interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
-  }
-
-  //get
-  Future get(String url, {Map<String, dynamic> params}) async {
-    var response = await dio.get(url, queryParameters: params);
-    return response.data;
-  }
-  //post
-  Future post(String url, Map<String, dynamic> params) async {
-    var response = await dio.post(url, data: params);
-    return response.data;
+          receiveTimeout: NetConfig.receiveTimeout)
+      ..interceptors
+          .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
+        print('request:url==>>>${options.path},pamars==>>>>${options.data}');
+        return options; //continue
+      }, onResponse: (Response response) {
+        return response; // continue
+      }, onError: (DioError e) {
+        dispatchFailure(e);
+        return e; //continue
+      }))
+      ..interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
   }
 }
 
-class HeaderInterceptor extends Interceptor {
-  @override
-  onRequest(RequestOptions options) {
-//    final token = AppConfig.userTools.getUserToken();
-//    if (token != null && token.length > 0) {
-//      options.headers.putIfAbsent('Authorization', () => 'Bearer' + ' ' + token);
-//    }
-//    if (options.uri.path.indexOf('api/user/advice/Imgs') > 0 || options.uri.path.indexOf('api/user/uploadUserHeader') > 0) { // 上传图片
-//      options.headers.putIfAbsent('Content-Type', () => 'multipart/form-data');
-//      print('上传图片');
-//    } else {
-//    }
-//    options.headers.putIfAbsent('Content-Type', () => 'application/json;charset=UTF-8');
+// Fixme: error 统一处理
+dispatchFailure(dynamic e) {
+  var msg = e.toString();
+  if (e is DioError) {
+    final resp = e.response;
+    if (resp?.statusCode == 401) {
 
-    return super.onRequest(options);
+    }
   }
+  print('error: ' + msg);
+  Fluttertoast.showToast(msg: msg, gravity: ToastGravity.TOP, textColor: Colors.white, backgroundColor: Colors.red);
 }
-

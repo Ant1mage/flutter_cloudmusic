@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cloudmusic/discover/widgets/discover_banner_widget.dart';
+import 'package:flutter_cloudmusic/discover/widgets/discover_recommend_widget.dart';
 import 'package:flutter_cloudmusic/discover/widgets/discover_tool_bar_widget.dart';
 import 'package:flutter_cloudmusic/global/widgets/search_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,7 +30,15 @@ Widget buildView(DiscoverState state, Dispatch dispatch, ViewService viewService
       child: ListView(
         children: <Widget>[
           new DiscoverPageBanner(bannerList: state.bannerList),
-          new DiscoverToolBar()
+          new DiscoverToolBar(),
+          Padding(
+            padding: EdgeInsets.only(top: 8),
+            child: Divider(
+              height: 1,
+              color: Colors.black26,
+            ),
+          ),
+          new DiscoverRecommend(list: state.recommendList,)
         ],
       )
   );

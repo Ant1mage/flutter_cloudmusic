@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class DiscoverPageBanner extends StatelessWidget {
 
-  final List<String> bannerList;
+  List<String> bannerList = [];
 
-  const DiscoverPageBanner({Key key, this.bannerList}) : super(key: key);
+  DiscoverPageBanner({Key key, this.bannerList}) : super(key: key);
 
 
   @override
@@ -16,13 +17,14 @@ class DiscoverPageBanner extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Swiper(
+            itemHeight: 160,
             autoplay: true,
             loop: true,
-            itemCount: bannerList.length,
+            itemCount: bannerList.length ?? 0,
             itemBuilder: (BuildContext context, int index) {
-              return Image.network(
-                bannerList[index],
-                fit: BoxFit.cover,
+              return CachedNetworkImage(
+                imageUrl: bannerList[index],
+                fit: BoxFit.fill,
               );
             },
             pagination: SwiperPagination(
