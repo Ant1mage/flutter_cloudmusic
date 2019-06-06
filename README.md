@@ -12,6 +12,11 @@ Flutter仿写网易云音乐, 持续更新
 
 ---
 
+# Preview
+
+| ![home](https://github.com/SugarAlex/flutter_cloudmusic/blob/master/_preview/home.png) | 
+
+---
 
 # 重要pub
 * 状态管理 Fish_Redux：[**fish_redux**](https://github.com/alibaba/fish-redux)
