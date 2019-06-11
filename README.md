@@ -1,7 +1,9 @@
 
 # Flutter_CloudMusic
 
-Flutter仿写网易云音乐, 持续更新
+## 播放器页面预计使用 SwiftUI 完成
+
+学习使用Flutter仿写网易云音乐, 持续更新
 
 基于阿里 fish_redux 状态管理
 
@@ -19,9 +21,9 @@ Flutter仿写网易云音乐, 持续更新
 ---
 
 # 重要pub
-* 状态管理 Fish_Redux：[**fish_redux**](https://github.com/alibaba/fish-redux)
-* 网络请求 dio：[**dio**](https://github.com/flutterchina/dio)
-* json解析 json_annotation：[**json_annotation**](https://github.com/dart-lang/json_serializable)
-* 轮播图 flutter_swiper: [**flutter_swiper**](https://github.com/best-flutter/flutter_swiper)
+* 状态管理：[**fish_redux**](https://github.com/alibaba/fish-redux)
+* 网络请求：[**dio**](https://github.com/flutterchina/dio)
+* json解析：[**json_annotation**](https://github.com/dart-lang/json_serializable)
+* 轮播图: [**flutter_swiper**](https://github.com/best-flutter/flutter_swiper)
 
 
